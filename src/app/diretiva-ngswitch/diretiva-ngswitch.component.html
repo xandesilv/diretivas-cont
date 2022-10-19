@@ -1,0 +1,118 @@
+<nav class="navbar  navbar-expand-md navbar-light bg-light">
+	<div class="container-fluid">
+    <div class="navbar-brand"> <img class="favicon" src="\assets\icon_01.png"> </div>
+		<button
+			class="navbar-toggler"
+			type="button"
+			aria-controls="navbarContent"
+			[attr.aria-expanded]="!collapsed"
+			aria-label="Toggle navigation"
+			(click)="collapsed = !collapsed"
+		>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+
+
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Dropdown </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link disabled">Disabled</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+      <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" ngbDropdown>
+            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Static </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+            </div>
+          </li>
+
+          <li class="nav-item" ngbDropdown>
+            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown2" role="button"> Static right </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu dropdown-menu-end">
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+            </div>
+          </li>
+
+          <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-end">
+            <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button"> Dynamic </a>
+            <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+              <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+            </div>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Diretivas</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"
+          [class.active]="aba == 'home'"
+          (click)="aba = 'home'"
+          >Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+          [class.active]="aba == 'mapa'"
+          (click)="aba = 'mapa'"
+          >Mapa</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+          [class.active]="aba == 'lista'"
+          (click)="aba = 'lista'"
+          >Lista</a>
+        </li>
+      </ul>
+     </div>
+  </div>
+</nav>
+
+<div class="container" [ngSwitch]="aba">
+  <p *ngSwitchCase="'mapa'"> Modo Mapa Ativado</p>
+  <p *ngSwitchCase="'lista'"> Modo Lista Ativado</p>
+  <p *ngSwitchDefault> Home </p>
+</div>
