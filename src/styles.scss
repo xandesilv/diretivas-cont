@@ -3,4 +3,8 @@
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
-
+body {
+  margin: 50px;
+  font-family: Ubuntu;
+  font-size: large;
+}

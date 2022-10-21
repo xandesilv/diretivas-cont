@@ -1,0 +1,44 @@
+<p fundoAmarelo >
+  Texto com fundo amarelo
+</p>
+
+<button fundoAmarelo>Botão com fundo amarelo. </button>
+
+<p highlightMouse>
+  Texto com highlight quando passo o mouse.
+</p>
+
+<p [highlight]="hl.value" [defaultColor]="bg.value"
+>
+ Texto com highlight  com cores customizadas.
+</p>
+
+
+<form>
+  <label class="form-label"> Mouse Over Color <input type="Color" class="form-control form-control-color"
+    #hl (change)="0"></label>
+
+  <label class="form-label"
+    > Mouse Leave Color
+<input type="Color" class="form-control form-control-color"
+#bg (change)="0">
+  </label>
+
+</form>
+
+
+<div *ngIf="mostrarCursos"
+>
+ Lista de cursos aqui.
+</div>
+
+<div *ngElse="mostrarCursos">
+  Não existem cursos para serem listados.
+</div>
+
+<br>
+<button (click)="onMostrarCursos()">
+  Mostrar ou esconder cursos
+</button>
+<br>
+
